@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B923E7D6BED959D8121ADB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 687BE5CB955602E1272DF8FA /* libPods.a */; };
 		E0E07F121BF92D9400FE7BBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F111BF92D9400FE7BBE /* AppDelegate.swift */; };
 		E0E07F141BF92D9400FE7BBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F131BF92D9400FE7BBE /* ViewController.swift */; };
 		E0E07F171BF92D9400FE7BBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E07F151BF92D9400FE7BBE /* Main.storyboard */; };
@@ -14,6 +15,13 @@
 		E0E07F1C1BF92D9400FE7BBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E07F1A1BF92D9400FE7BBE /* LaunchScreen.storyboard */; };
 		E0E07F271BF92D9500FE7BBE /* FificaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F261BF92D9500FE7BBE /* FificaTests.swift */; };
 		E0E07F321BF92D9500FE7BBE /* FificaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F311BF92D9500FE7BBE /* FificaUITests.swift */; };
+		E0F52D2D1C0D3ED7007F6451 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F52D2C1C0D3ED7007F6451 /* LoginViewController.swift */; };
+		E0F52D2F1C0E484C007F6451 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F52D2E1C0E484C007F6451 /* RegisterViewController.swift */; };
+		E0F52D311C0E7F86007F6451 /* SubmittedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F52D301C0E7F86007F6451 /* SubmittedViewController.swift */; };
+		E0F52D331C0FB96A007F6451 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F52D321C0FB96A007F6451 /* StatisticsViewController.swift */; };
+		E0F52D3A1C12B5F3007F6451 /* StatisticsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F52D381C12B5F3007F6451 /* StatisticsTableViewCell.swift */; };
+		E0F52D3B1C12B5F3007F6451 /* StatisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0F52D391C12B5F3007F6451 /* StatisticsTableViewCell.xib */; };
+		E0F52D431C12CD4C007F6451 /* HeadToHeadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0F52D421C12CD4C007F6451 /* HeadToHeadViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		687BE5CB955602E1272DF8FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		77FEDED342DA9B4D9D4F4FE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C19DD48E4D53D773FFAD21EB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E0A490C61C580CCA005FC828 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E0E07F0E1BF92D9400FE7BBE /* Fifica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fifica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E07F111BF92D9400FE7BBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E07F131BF92D9400FE7BBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,14 @@
 		E0E07F2D1BF92D9500FE7BBE /* FificaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FificaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E07F311BF92D9500FE7BBE /* FificaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FificaUITests.swift; sourceTree = "<group>"; };
 		E0E07F331BF92D9500FE7BBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0F448C11C09026500A2EBAE /* Fifica-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Fifica-Bridging-Header.h"; sourceTree = "<group>"; };
+		E0F52D2C1C0D3ED7007F6451 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E0F52D2E1C0E484C007F6451 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		E0F52D301C0E7F86007F6451 /* SubmittedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmittedViewController.swift; sourceTree = "<group>"; };
+		E0F52D321C0FB96A007F6451 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		E0F52D381C12B5F3007F6451 /* StatisticsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsTableViewCell.swift; sourceTree = "<group>"; };
+		E0F52D391C12B5F3007F6451 /* StatisticsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatisticsTableViewCell.xib; sourceTree = "<group>"; };
+		E0F52D421C12CD4C007F6451 /* HeadToHeadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeadToHeadViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B923E7D6BED959D8121ADB6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,13 +95,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F2E7E349A6B3379AE2AC80E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				687BE5CB955602E1272DF8FA /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E0E07F051BF92D9400FE7BBE = {
 			isa = PBXGroup;
 			children = (
+				E0A490C61C580CCA005FC828 /* Podfile */,
 				E0E07F101BF92D9400FE7BBE /* Fifica */,
 				E0E07F251BF92D9500FE7BBE /* FificaTests */,
 				E0E07F301BF92D9500FE7BBE /* FificaUITests */,
 				E0E07F0F1BF92D9400FE7BBE /* Products */,
+				FCF0B355E3212366432D8195 /* Pods */,
+				8F2E7E349A6B3379AE2AC80E /* Frameworks */,
+				E0F448C11C09026500A2EBAE /* Fifica-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,9 +130,16 @@
 		E0E07F101BF92D9400FE7BBE /* Fifica */ = {
 			isa = PBXGroup;
 			children = (
+				E0F52D421C12CD4C007F6451 /* HeadToHeadViewController.swift */,
 				E0E07F111BF92D9400FE7BBE /* AppDelegate.swift */,
 				E0E07F131BF92D9400FE7BBE /* ViewController.swift */,
+				E0F52D301C0E7F86007F6451 /* SubmittedViewController.swift */,
+				E0F52D381C12B5F3007F6451 /* StatisticsTableViewCell.swift */,
+				E0F52D391C12B5F3007F6451 /* StatisticsTableViewCell.xib */,
 				E0E07F151BF92D9400FE7BBE /* Main.storyboard */,
+				E0F52D321C0FB96A007F6451 /* StatisticsViewController.swift */,
+				E0F52D2E1C0E484C007F6451 /* RegisterViewController.swift */,
+				E0F52D2C1C0D3ED7007F6451 /* LoginViewController.swift */,
 				E0E07F181BF92D9400FE7BBE /* Assets.xcassets */,
 				E0E07F1A1BF92D9400FE7BBE /* LaunchScreen.storyboard */,
 				E0E07F1D1BF92D9400FE7BBE /* Info.plist */,
@@ -125,6 +165,15 @@
 			path = FificaUITests;
 			sourceTree = "<group>";
 		};
+		FCF0B355E3212366432D8195 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C19DD48E4D53D773FFAD21EB /* Pods.debug.xcconfig */,
+				77FEDED342DA9B4D9D4F4FE8 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E0E07F361BF92D9500FE7BBE /* Build configuration list for PBXNativeTarget "Fifica" */;
 			buildPhases = (
+				8AD3A857D685F7AF9B91EE67 /* Check Pods Manifest.lock */,
 				E0E07F0A1BF92D9400FE7BBE /* Sources */,
 				E0E07F0B1BF92D9400FE7BBE /* Frameworks */,
 				E0E07F0C1BF92D9400FE7BBE /* Resources */,
+				8C7C7CE1BB31E4AA0624F27C /* Embed Pods Frameworks */,
+				71C84B15BB284356D21CD2E7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +245,7 @@
 				TargetAttributes = {
 					E0E07F0D1BF92D9400FE7BBE = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 3UJG5432Y9;
 					};
 					E0E07F211BF92D9500FE7BBE = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -231,6 +284,7 @@
 			files = (
 				E0E07F1C1BF92D9400FE7BBE /* LaunchScreen.storyboard in Resources */,
 				E0E07F191BF92D9400FE7BBE /* Assets.xcassets in Resources */,
+				E0F52D3B1C12B5F3007F6451 /* StatisticsTableViewCell.xib in Resources */,
 				E0E07F171BF92D9400FE7BBE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +305,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		71C84B15BB284356D21CD2E7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8AD3A857D685F7AF9B91EE67 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8C7C7CE1BB31E4AA0624F27C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E0E07F0A1BF92D9400FE7BBE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0F52D2D1C0D3ED7007F6451 /* LoginViewController.swift in Sources */,
 				E0E07F141BF92D9400FE7BBE /* ViewController.swift in Sources */,
 				E0E07F121BF92D9400FE7BBE /* AppDelegate.swift in Sources */,
+				E0F52D331C0FB96A007F6451 /* StatisticsViewController.swift in Sources */,
+				E0F52D3A1C12B5F3007F6451 /* StatisticsTableViewCell.swift in Sources */,
+				E0F52D2F1C0E484C007F6451 /* RegisterViewController.swift in Sources */,
+				E0F52D311C0E7F86007F6451 /* SubmittedViewController.swift in Sources */,
+				E0F52D431C12CD4C007F6451 /* HeadToHeadViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,23 +505,38 @@
 		};
 		E0E07F371BF92D9500FE7BBE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C19DD48E4D53D773FFAD21EB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fifica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ThropD21.Fifica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fifica-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		E0E07F381BF92D9500FE7BBE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77FEDED342DA9B4D9D4F4FE8 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fifica/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ThropD21.Fifica;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Fifica-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -484,6 +607,7 @@
 				E0E07F381BF92D9500FE7BBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0E07F391BF92D9500FE7BBE /* Build configuration list for PBXNativeTarget "FificaTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +616,7 @@
 				E0E07F3B1BF92D9500FE7BBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E0E07F3C1BF92D9500FE7BBE /* Build configuration list for PBXNativeTarget "FificaUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +625,7 @@
 				E0E07F3E1BF92D9500FE7BBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

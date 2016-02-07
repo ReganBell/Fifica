@@ -9,27 +9,22 @@
 import UIKit
 
 class SubmittedViewController: UIViewController {
-
-    func showLoginPage() {
-        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
-        presentViewController(loginViewController, animated: true, completion: nil)
+    
+    var leagueName = ""
+    
+    class func instance(leagueName: String) -> SubmittedViewController {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SubmittedViewController") as! SubmittedViewController
+        controller.leagueName = leagueName
+        return controller
+    }
+    
+    @IBAction func statisticsButtonPressed(button: UIButton) {
+        presentViewController(StatisticsViewController.instance(leagueName), animated: true, completion: nil)
     }
     
     // if user logs out clear username and bring up login page
     @IBAction func logoutButtonPressed(button: UIButton) {
         NSUserDefaults.standardUserDefaults().setObject(nil, forKey: "username")
-        showLoginPage()
+        presentViewController(LoginViewController.instance(), animated: true, completion: nil)
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-    
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 // create a class to hold user stats (like a struct in C)
 class UserStats: NSObject {
@@ -29,32 +30,38 @@ class StatisticsViewController: UIViewController {
     // create a dictionary holding all the classes with each username as a key
     var allInfo = Dictionary<String, UserStats>()
     var usernames: [String] = []
+    var leagueName = ""
+    var usersRoot: Firebase { return Firebase(url: "https://fiery-fire-4792.firebaseio.com/leagues/\(leagueName)/users") }
+    var gamesRoot: Firebase { return Firebase(url:"https://fiery-fire-4792.firebaseio.com/leagues/\(leagueName)/games") }
     @IBOutlet weak var tableView: UITableView!
+    
+    class func instance(leagueName: String) -> StatisticsViewController {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("StatisticsViewController") as! StatisticsViewController
+        controller.leagueName = leagueName
+        return controller
+    }
     
     // initialize the table cells
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = leagueName
         tableView.registerNib(UINib(nibName: "StatisticsTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-
     }
+    
     override func viewDidAppear(animated:Bool) {
         // query for all the registered usernames
-        let userRef = Firebase(url: "https://fiery-fire-4792.firebaseio.com/users")
-        userRef.queryOrderedByChild("RegisterUsername").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
+        usersRoot.queryOrderedByChild("RegisterUsername").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
             
             // if there are some registered usernames, appened them to the usernames array
             if !(snapshot.value is NSNull) {
-                for value in (snapshot.value as! NSDictionary).allValues {
-                    if let value = value as? [String: String] {
-                        self.usernames.append(value["RegisterUsername"]!)
-                    }
+                if let dict = snapshot.value as? NSDictionary, let usernames = dict.allKeys as? [String] {
+                    self.usernames = usernames
                 }
             }
             // itererate through the usernames
             for username in self.usernames {
                 // find all the games each user has played
-                let ref = Firebase(url:"https://fiery-fire-4792.firebaseio.com/games")
-                ref.queryOrderedByChild("usernameFor").queryEqualToValue("\(username)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
+                self.gamesRoot.queryOrderedByChild("usernameFor").queryEqualToValue("\(username)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
 
                     // if a player has no stats yet, use the default class values to initialize to 0.
                     if self.allInfo[username] == nil {
@@ -94,8 +101,7 @@ class StatisticsViewController: UIViewController {
     
     func getOpponentData(username: String) {
             // find all games where each username was the opponent
-            let ref = Firebase(url:"https://fiery-fire-4792.firebaseio.com/games")
-            ref.queryOrderedByChild("opponentUsername").queryEqualToValue("\(username)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
+            gamesRoot.queryOrderedByChild("opponentUsername").queryEqualToValue("\(username)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
                 
                 // initialize values to zero if empty
                 if self.allInfo[username] == nil {

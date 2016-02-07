@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 // create class containing head to head stats
 class HeadToHeadStats: NSObject {

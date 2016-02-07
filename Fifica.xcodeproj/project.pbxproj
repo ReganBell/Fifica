@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7B923E7D6BED959D8121ADB6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 687BE5CB955602E1272DF8FA /* libPods.a */; };
+		4D7D16F2F61D8C88E088D0D5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D5A0AA82B531058C1C4C3D /* Pods.framework */; };
+		59C5FF331C605B4F00537F3B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C5FF321C605B4F00537F3B /* Model.swift */; };
+		59E3A2AB1C6052C700C2C54B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3A2AA1C6052C700C2C54B /* NavigationController.swift */; };
+		59E3A2AD1C60532400C2C54B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3A2AC1C60532400C2C54B /* Colors.swift */; };
+		59E3A2AF1C60596900C2C54B /* LeaguesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3A2AE1C60596900C2C54B /* LeaguesViewController.swift */; };
 		E0E07F121BF92D9400FE7BBE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F111BF92D9400FE7BBE /* AppDelegate.swift */; };
-		E0E07F141BF92D9400FE7BBE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F131BF92D9400FE7BBE /* ViewController.swift */; };
+		E0E07F141BF92D9400FE7BBE /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E07F131BF92D9400FE7BBE /* InputViewController.swift */; };
 		E0E07F171BF92D9400FE7BBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E07F151BF92D9400FE7BBE /* Main.storyboard */; };
 		E0E07F191BF92D9400FE7BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0E07F181BF92D9400FE7BBE /* Assets.xcassets */; };
 		E0E07F1C1BF92D9400FE7BBE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0E07F1A1BF92D9400FE7BBE /* LaunchScreen.storyboard */; };
@@ -42,13 +46,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		687BE5CB955602E1272DF8FA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		39D5A0AA82B531058C1C4C3D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		59C5FF321C605B4F00537F3B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		59E3A2AA1C6052C700C2C54B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = ../NavigationController.swift; sourceTree = "<group>"; };
+		59E3A2AC1C60532400C2C54B /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		59E3A2AE1C60596900C2C54B /* LeaguesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaguesViewController.swift; sourceTree = "<group>"; };
 		77FEDED342DA9B4D9D4F4FE8 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C19DD48E4D53D773FFAD21EB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		E0A490C61C580CCA005FC828 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E0A490C61C580CCA005FC828 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E0E07F0E1BF92D9400FE7BBE /* Fifica.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fifica.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E07F111BF92D9400FE7BBE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E0E07F131BF92D9400FE7BBE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E0E07F131BF92D9400FE7BBE /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		E0E07F161BF92D9400FE7BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E0E07F181BF92D9400FE7BBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E0E07F1B1BF92D9400FE7BBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B923E7D6BED959D8121ADB6 /* libPods.a in Frameworks */,
+				4D7D16F2F61D8C88E088D0D5 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +106,7 @@
 		8F2E7E349A6B3379AE2AC80E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				687BE5CB955602E1272DF8FA /* libPods.a */,
+				39D5A0AA82B531058C1C4C3D /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,9 +138,13 @@
 		E0E07F101BF92D9400FE7BBE /* Fifica */ = {
 			isa = PBXGroup;
 			children = (
+				59E3A2AC1C60532400C2C54B /* Colors.swift */,
+				59E3A2AA1C6052C700C2C54B /* NavigationController.swift */,
 				E0F52D421C12CD4C007F6451 /* HeadToHeadViewController.swift */,
 				E0E07F111BF92D9400FE7BBE /* AppDelegate.swift */,
-				E0E07F131BF92D9400FE7BBE /* ViewController.swift */,
+				59E3A2AE1C60596900C2C54B /* LeaguesViewController.swift */,
+				59C5FF321C605B4F00537F3B /* Model.swift */,
+				E0E07F131BF92D9400FE7BBE /* InputViewController.swift */,
 				E0F52D301C0E7F86007F6451 /* SubmittedViewController.swift */,
 				E0F52D381C12B5F3007F6451 /* StatisticsTableViewCell.swift */,
 				E0F52D391C12B5F3007F6451 /* StatisticsTableViewCell.xib */,
@@ -359,9 +371,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0F52D2D1C0D3ED7007F6451 /* LoginViewController.swift in Sources */,
-				E0E07F141BF92D9400FE7BBE /* ViewController.swift in Sources */,
+				E0E07F141BF92D9400FE7BBE /* InputViewController.swift in Sources */,
 				E0E07F121BF92D9400FE7BBE /* AppDelegate.swift in Sources */,
+				59C5FF331C605B4F00537F3B /* Model.swift in Sources */,
+				59E3A2AF1C60596900C2C54B /* LeaguesViewController.swift in Sources */,
 				E0F52D331C0FB96A007F6451 /* StatisticsViewController.swift in Sources */,
+				59E3A2AB1C6052C700C2C54B /* NavigationController.swift in Sources */,
+				59E3A2AD1C60532400C2C54B /* Colors.swift in Sources */,
 				E0F52D3A1C12B5F3007F6451 /* StatisticsTableViewCell.swift in Sources */,
 				E0F52D2F1C0E484C007F6451 /* RegisterViewController.swift in Sources */,
 				E0F52D311C0E7F86007F6451 /* SubmittedViewController.swift in Sources */,

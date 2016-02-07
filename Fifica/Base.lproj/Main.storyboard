@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aOi-1q-zOz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aOi-1q-zOz">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -212,10 +212,10 @@
             </objects>
             <point key="canvasLocation" x="1877" y="831"/>
         </scene>
-        <!--View Controller-->
+        <!--Input View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="ViewController" storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Fifica" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="InputViewController" storyboardIdentifier="InputViewController" id="BYZ-38-t0r" customClass="InputViewController" customModule="Fifica" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -317,6 +317,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Logged in as" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBb-1o-kfc">
+                                <rect key="frame" x="388.5" y="44" width="97.5" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="3Ar-wL-dBH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.38419725529100535" green="0.38419725529100535" blue="0.38419725529100535" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -324,6 +333,8 @@
                             <constraint firstItem="eS2-wX-rTy" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="68" id="2zM-XU-0Rx"/>
                             <constraint firstItem="B1B-NX-tZu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4ti-Vn-VT7"/>
                             <constraint firstItem="7ac-iH-qk5" firstAttribute="top" secondItem="B1B-NX-tZu" secondAttribute="bottom" constant="23" id="AYf-yL-fSP"/>
+                            <constraint firstItem="7td-n5-pZA" firstAttribute="leading" secondItem="ZBb-1o-kfc" secondAttribute="trailing" constant="-30" id="EMf-tw-4Y1"/>
+                            <constraint firstItem="7td-n5-pZA" firstAttribute="leading" secondItem="ZBb-1o-kfc" secondAttribute="trailing" id="GCL-Pp-fRz"/>
                             <constraint firstItem="OHm-oU-oLt" firstAttribute="top" secondItem="UR7-xQ-ykp" secondAttribute="bottom" constant="3" id="GKj-zI-dxl"/>
                             <constraint firstItem="x8m-N0-dQ6" firstAttribute="centerY" secondItem="Ppo-wh-vhJ" secondAttribute="centerY" id="Jul-KH-nO8"/>
                             <constraint firstItem="7td-n5-pZA" firstAttribute="leading" secondItem="eS2-wX-rTy" secondAttribute="trailing" constant="-33" id="KJB-tZ-1U0"/>
@@ -332,6 +343,7 @@
                             <constraint firstItem="eS2-wX-rTy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="ORO-Tv-Oa4"/>
                             <constraint firstItem="UR7-xQ-ykp" firstAttribute="top" secondItem="iQO-wa-GJ0" secondAttribute="bottom" constant="24" id="SVS-B1-p5Y"/>
                             <constraint firstItem="7ac-iH-qk5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VT9-Ai-8Hc"/>
+                            <constraint firstItem="ZBb-1o-kfc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="YPg-qQ-ew6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7td-n5-pZA" secondAttribute="trailing" constant="-20" id="aEv-N2-Tyz"/>
                             <constraint firstItem="x8m-N0-dQ6" firstAttribute="top" secondItem="UR7-xQ-ykp" secondAttribute="bottom" constant="-1" id="bwu-aF-BeX"/>
                             <constraint firstItem="iQO-wa-GJ0" firstAttribute="centerX" secondItem="eS2-wX-rTy" secondAttribute="centerX" id="cNJ-8g-Qfh"/>
@@ -346,6 +358,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="GCL-Pp-fRz"/>
                                 <exclude reference="KJB-tZ-1U0"/>
                                 <exclude reference="KRd-vS-eTB"/>
                                 <exclude reference="kBh-di-EsN"/>
@@ -356,6 +369,7 @@
                     <connections>
                         <outlet property="goalsAgainstField" destination="x8m-N0-dQ6" id="v7h-F2-Tml"/>
                         <outlet property="goalsForField" destination="Ppo-wh-vhJ" id="pZn-dX-TqF"/>
+                        <outlet property="loggedInAsLabel" destination="ZBb-1o-kfc" id="yp9-ED-gNL"/>
                         <outlet property="pickerView" destination="iQO-wa-GJ0" id="Da6-3D-V27"/>
                         <segue destination="Hj0-AB-Rt7" kind="presentation" identifier="Loginview" id="JZM-ot-Ew6"/>
                     </connections>
@@ -515,7 +529,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="aRS-y6-ayM" kind="presentation" id="yrT-jD-sC3"/>
+                                    <action selector="statisticsButtonPressed:" destination="sO4-Pp-dKl" eventType="touchUpInside" id="bdy-yH-7BV"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y6p-6d-X0r">
@@ -683,8 +697,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vBo-RV-5f3"/>
-        <segue reference="yrT-jD-sC3"/>
+        <segue reference="IvJ-Bw-ix3"/>
         <segue reference="JZM-ot-Ew6"/>
     </inferredMetricsTieBreakers>
 </document>

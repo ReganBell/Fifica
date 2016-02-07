@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class RegisterViewController: UIViewController {
 
@@ -68,18 +69,6 @@ class RegisterViewController: UIViewController {
             let fieldsAlertController = UIAlertController(title: "Error", message: "Please fill in username field", preferredStyle: .Alert)
             fieldsAlertController.addAction(UIAlertAction(title: "Close", style: .Cancel, handler: nil))
             presentViewController(fieldsAlertController, animated: true, completion: nil)
-            
-            
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-
 }

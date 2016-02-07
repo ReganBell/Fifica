@@ -7,21 +7,23 @@
 //
 
 import UIKit
+import Firebase
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // create variables for inputed score
     @IBOutlet var goalsForField: UITextField?
     @IBOutlet var goalsAgainstField: UITextField?
     @IBOutlet var pickerView: UIPickerView?
+    @IBOutlet var loggedInAsLabel: UILabel?
     
-    var goalsFor:Int {
-        return (goalsForField!.text! as NSString).integerValue
-    }
+    var leagueName: String = ""
     
-    var goalsAgainst:Int {
-        return (goalsAgainstField!.text! as NSString).integerValue
-    }
+    var goalsFor: Int { return (goalsForField!.text! as NSString).integerValue }
+    var goalsAgainst: Int { return (goalsAgainstField!.text! as NSString).integerValue }
+    
+    var usersRoot: Firebase { return Firebase(url: "https://fiery-fire-4792.firebaseio.com/leagues/\(leagueName)/users") }
+    var gamesRoot: Firebase { return Firebase(url:"https://fiery-fire-4792.firebaseio.com/leagues/\(leagueName)/games") }
     
     // create variables for wins
     var winForUser = 0
@@ -31,33 +33,35 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     var opponents:[String] = []
     
+    class func instance(leagueName: String) -> InputViewController {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("InputViewController") as! InputViewController
+        controller.leagueName = leagueName
+        return controller
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // if there is no value for username then render the login page
-        if (NSUserDefaults.standardUserDefaults().stringForKey("username") == nil)
-        {
+        if let username = NSUserDefaults.standardUserDefaults().stringForKey("username") {
+            loggedInAsLabel?.text = "Logged in as \(username)"
+        } else {
             showLoginPage()
         }
         
         // if there are no opponents in the array query fire base so the pickerview can load
         if (opponents.count == 0) {
-            let userRef = Firebase(url: "https://fiery-fire-4792.firebaseio.com/users")
-            userRef.queryOrderedByChild("RegisterUsername").observeEventType(.ChildAdded, andPreviousSiblingKeyWithBlock: { snapshot, string in
-            
-                // append registered usernamees to opponent array and then reload pickerView
-                self.opponents.append(snapshot.value["RegisterUsername"] as! String)
+            usersRoot.observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: {snapshot, string in
+                if let dict = snapshot.value as? NSDictionary, let opponents = dict.allKeys as? [String] {
+                    self.opponents = opponents
+                }
                 self.pickerView?.reloadAllComponents()
             })
         }
-        
     }
-    
     
     // brings up the login page
     func showLoginPage() {
-        let loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController")
-        presentViewController(loginViewController, animated: true, completion: nil)
+        presentViewController(LoginViewController.instance(), animated: true, completion: nil)
     }
     
     // functions needed to set up PickerView
@@ -87,16 +91,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let opponentSelected = opponents[pickerView!.selectedRowInComponent(0)]
         NSUserDefaults.standardUserDefaults().setObject(opponentSelected, forKey: "opponent")
         let username = NSUserDefaults.standardUserDefaults().stringForKey("username")!
-        let root = Firebase(url: "https://fiery-fire-4792.firebaseio.com/games")
-        let child = root.childByAutoId()
-        
+        let child = gamesRoot.childByAutoId()
         // store all necessary statistics
         child.setValue(["GoalsFor" : goalsFor, "GoalsAgainst" : goalsAgainst, "usernameFor": username, "opponentUsername": opponentSelected, "UserWin": winForUser, "UserLoss": winForOpponent, "UserPkWin": pkWin, "UserPkLoss": pkLoss])
         
         // bring up page asking if you want to submit more data
-        let submittedView = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("SubmittedViewController")
-        presentViewController(submittedView, animated: true, completion: nil)
-        
+        presentViewController(SubmittedViewController.instance(leagueName), animated: true, completion: nil)
     }
     
     
@@ -154,15 +154,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         NSUserDefaults.standardUserDefaults().setObject(opponentSelected, forKey: "opponent")
         
         // show statistics view
-        let statisticsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("StatisticsViewController")
-        presentViewController(statisticsViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(StatisticsViewController.instance(leagueName), animated: true)
     }
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-
 }
-

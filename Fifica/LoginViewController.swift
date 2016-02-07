@@ -7,19 +7,22 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
-    
     // create variables for username and password
     @IBOutlet var usernameField: UITextField?
     var usernames:[String] = []
     
+    class func instance() -> LoginViewController {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
+    }
+    
     @IBAction func submitButtonPressed(button: UIButton) {
         
         // make sure login field is filled in
-        if (usernameField!.text != "")
-        {
+        if usernameField!.text != "" {
             var validUsername = false
             
             // query Firebase to get all the registered usernames
@@ -60,8 +63,7 @@ class LoginViewController: UIViewController {
             })
         }
         // if the username field has not been filled in, display an error message
-        else
-        {
+        else {
             let alertController = UIAlertController(title: "Error", message: "Please enter username", preferredStyle: .Alert)
             alertController.addAction(UIAlertAction(title: "Close", style: .Cancel, handler: nil))
             presentViewController(alertController, animated: true, completion: nil)
@@ -71,8 +73,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Login"
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

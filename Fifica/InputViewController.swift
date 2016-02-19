@@ -39,14 +39,16 @@ class InputViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return controller
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(animated: Bool) {
         if let username = NSUserDefaults.standardUserDefaults().stringForKey("username") {
             loggedInAsLabel?.text = "Logged in as \(username)"
         } else {
             showLoginPage()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         // if there are no opponents in the array query fire base so the pickerview can load
         if (opponents.count == 0) {

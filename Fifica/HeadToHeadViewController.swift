@@ -25,6 +25,14 @@ class HeadToHeadStats: NSObject {
 
 class HeadToHeadViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    class func instance(username: String, opponent: String, leagueName: String) -> HeadToHeadViewController {
+        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HeadToHeadViewController") as! HeadToHeadViewController
+        controller.username = username
+        controller.opponent = opponent
+        controller.leagueName = leagueName
+        return controller
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,23 +41,19 @@ class HeadToHeadViewController: UIViewController, UITableViewDelegate, UITableVi
         getHeadToHeadStats()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // dictionary of HeadToHeadStats Classes with key of a username
     var headToHeadInfo = Dictionary<String, HeadToHeadStats>()
     @IBOutlet weak var headToHeadTableView: UITableView!
     
-    let opponent = NSUserDefaults.standardUserDefaults().stringForKey("opponent")!
-    let username = NSUserDefaults.standardUserDefaults().stringForKey("username")!
+    var opponent = ""
+    var username = ""
+    var leagueName = ""
+    var gamesRoot: Firebase { return Firebase(url:"https://fiery-fire-4792.firebaseio.com/leagues/\(leagueName)/games") }
 
     func getHeadToHeadStats() {
         
         // find all games where the firebase username was the current username logged in
-        let ref = Firebase(url:"https://fiery-fire-4792.firebaseio.com/games")
-        ref.queryOrderedByChild("usernameFor").queryEqualToValue("\(username)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
+        gamesRoot.queryOrderedByChild("usernameFor").queryEqualToValue("\(username)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
             
             // if there are no games, initialize stats to 0
             if self.headToHeadInfo[self.username] == nil {
@@ -88,8 +92,7 @@ class HeadToHeadViewController: UIViewController, UITableViewDelegate, UITableVi
     func getOpponentHeadToHeadData() {
         
         // now find all the games where the opponent was the one logged in
-        let ref = Firebase(url:"https://fiery-fire-4792.firebaseio.com/games")
-        ref.queryOrderedByChild("usernameFor").queryEqualToValue("\(opponent)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
+        gamesRoot.queryOrderedByChild("usernameFor").queryEqualToValue("\(opponent)").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
             
             if self.headToHeadInfo[self.username] == nil {
                 self.headToHeadInfo[self.username] = HeadToHeadStats()

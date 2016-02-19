@@ -50,6 +50,7 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidAppear(animated:Bool) {
         // query for all the registered usernames
+        allInfo = Dictionary<String, UserStats>()
         usersRoot.queryOrderedByChild("RegisterUsername").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
             
             // if there are some registered usernames, appened them to the usernames array
@@ -139,16 +140,17 @@ class StatisticsViewController: UIViewController {
                 self.tableView.reloadData()
             })
     }
-    
-    // brings up head to head stats view when button is pressed
-    @IBAction func seeHeadToHeadButtonPressed(button: UIButton) {
-        let headToHeadViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HeadToHeadViewController")
-        presentViewController(headToHeadViewController, animated: true, completion: nil)
-    }
 }
 
 
 extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let username = NSUserDefaults.standardUserDefaults().stringForKey("username")!
+        let opponent = usernames[indexPath.row - 1]
+        let controller = HeadToHeadViewController.instance(username, opponent: opponent, leagueName: leagueName)
+        navigationController?.pushViewController(controller, animated: true)
+    }
     
     // create the table
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -157,7 +159,6 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
             // hard code labels as the first row in the table
             if indexPath.row == 0 {
                 cell.nameLabel?.textAlignment = .Center
-                cell.nameLabel?.text = "Statistics:"
                 cell.winsLabel?.text = "W"
                 cell.lossesLabel?.text = "L"
                 cell.goalsForLabel?.text = "GF"
@@ -193,5 +194,4 @@ extension StatisticsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return usernames.count + 1
     }
-    
 }

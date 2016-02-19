@@ -13,70 +13,40 @@ class LoginViewController: UIViewController {
 
     // create variables for username and password
     @IBOutlet var usernameField: UITextField?
-    var usernames:[String] = []
+    var usernames: Set<String> = []
     
     class func instance() -> LoginViewController {
         return UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewController") as! LoginViewController
     }
     
-    @IBAction func submitButtonPressed(button: UIButton) {
+    func displayErrorMessage(message: String) {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "Close", style: .Cancel, handler: nil))
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    @IBAction func loginButtonPressed(button: UIButton) {
         
-        // make sure login field is filled in
-        if usernameField!.text != "" {
-            var validUsername = false
+        guard let text = usernameField?.text where !text.isEmpty else {
+            displayErrorMessage("Please enter a username")
+            return
+        }
+        
+        let userRef = Firebase(url: "https://fiery-fire-4792.firebaseio.com/users")
+        userRef.queryOrderedByChild("RegisterUsername").observeSingleEventOfType(.Value) { [weak self] snapshot, string in
             
-            // query Firebase to get all the registered usernames
-            let userRef = Firebase(url: "https://fiery-fire-4792.firebaseio.com/users")
-            userRef.queryOrderedByChild("RegisterUsername").observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
-                
-                // if there are usernames, append them to the usernames array
-                if !(snapshot.value is NSNull) {
-                    for value in (snapshot.value as! NSDictionary).allValues {
-                        if let value = value as? [String: String] {
-                            self.usernames.append(value["RegisterUsername"]!)
-                        }
-                    }
-                    
-                    // make sure login username matches a registered username
-                    for (var i = 0; i < self.usernames.count; i++)
-                    {
-                        if (self.usernameField!.text! == self.usernames[i]) {
-                            validUsername = true
-                        }
-                    }
-                }
-                // if the username has already been registered bring up the main view controller
-                if (validUsername == true) {
-                    
-                    NSUserDefaults.standardUserDefaults().setObject(self.usernameField!.text!, forKey: "username")
-                    let ViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("ViewController")
-                    self.presentViewController(ViewController, animated: true, completion: nil)
-                    
-                }
-                // if the username has not been registered, display an error message
-                else {
-                    let validUsernameAlertController = UIAlertController(title: "Error", message: "Username not found", preferredStyle: .Alert)
-                    validUsernameAlertController.addAction(UIAlertAction(title: "Close", style: .Cancel, handler: nil))
-                    self.presentViewController(validUsernameAlertController, animated: true, completion: nil)
-                }
-                
-            })
+            guard let usernameDict = snapshot.value as? NSDictionary else {
+                self?.displayErrorMessage("Error reaching the server")
+                return
+            }
+            
+            let usernames = Set(usernameDict.allValues.map() { return ($0 as! [String:String])["RegisterUsername"]! })
+            if let username = self?.usernameField?.text where usernames.contains(username) {
+                NSUserDefaults.standardUserDefaults().setObject(username, forKey: "username")
+                self?.dismissViewControllerAnimated(true, completion: nil)
+            } else {
+                self?.displayErrorMessage("Username not found")
+            }
         }
-        // if the username field has not been filled in, display an error message
-        else {
-            let alertController = UIAlertController(title: "Error", message: "Please enter username", preferredStyle: .Alert)
-            alertController.addAction(UIAlertAction(title: "Close", style: .Cancel, handler: nil))
-            presentViewController(alertController, animated: true, completion: nil)
-        }
-    
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Login"
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }

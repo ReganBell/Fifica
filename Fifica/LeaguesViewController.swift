@@ -15,31 +15,41 @@ class LeaguesViewController: UIViewController {
     var leagues = [StubLeague]()
     let tableView = UITableView()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        title = "Leagues"
-        
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
-        constrain(tableView) { $0.edges == $0.superview!.edges }
-        
+    func newLeagueButtonPressed() {
+        presentViewController(NewLeagueViewController.instance(), animated: true, completion: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        leagues = [StubLeague]()
         let ref = Firebase(url:"https://fiery-fire-4792.firebaseio.com/leagues")
         ref.observeSingleEventOfType(.Value, andPreviousSiblingKeyWithBlock: { snapshot, string in
             if let leaguesDict = snapshot.value as? NSDictionary {
                 self.leagues = [StubLeague]()
                 for key in leaguesDict.allKeys {
                     if let key = key as? String,
-                       let leagueDict = leaguesDict[key] as? NSDictionary,
-                       let usersDict = leagueDict["users"] as? NSDictionary {
-                        self.leagues.append(StubLeague(name: key, users: usersDict.count))
-                        
+                        let leagueDict = leaguesDict[key] as? NSDictionary,
+                        let usersDict = leagueDict["users"] as? NSDictionary {
+                            self.leagues.append(StubLeague(name: key, users: usersDict.count))
+                            
                     }
                 }
                 self.tableView.reloadData()
             }
         })
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "Leagues"
+        
+        let newBarButton = UIBarButtonItem(title: "New", style: .Plain, target: self, action: "newLeagueButtonPressed")
+        navigationItem.rightBarButtonItem = newBarButton
+        
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        constrain(tableView) { $0.edges == $0.superview!.edges }
     }
 }
 

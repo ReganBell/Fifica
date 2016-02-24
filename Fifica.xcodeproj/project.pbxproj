@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D7D16F2F61D8C88E088D0D5 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39D5A0AA82B531058C1C4C3D /* Pods.framework */; };
+		598524D51C77F9FA0023094F /* NewLeagueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 598524D41C77F9FA0023094F /* NewLeagueViewController.swift */; };
 		59C5FF331C605B4F00537F3B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C5FF321C605B4F00537F3B /* Model.swift */; };
 		59E3A2AB1C6052C700C2C54B /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3A2AA1C6052C700C2C54B /* NavigationController.swift */; };
 		59E3A2AD1C60532400C2C54B /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3A2AC1C60532400C2C54B /* Colors.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		39D5A0AA82B531058C1C4C3D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		598524D41C77F9FA0023094F /* NewLeagueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLeagueViewController.swift; sourceTree = "<group>"; };
 		59C5FF321C605B4F00537F3B /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		59E3A2AA1C6052C700C2C54B /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = ../NavigationController.swift; sourceTree = "<group>"; };
 		59E3A2AC1C60532400C2C54B /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				E0F52D381C12B5F3007F6451 /* StatisticsTableViewCell.swift */,
 				E0F52D391C12B5F3007F6451 /* StatisticsTableViewCell.xib */,
 				E0E07F151BF92D9400FE7BBE /* Main.storyboard */,
+				598524D41C77F9FA0023094F /* NewLeagueViewController.swift */,
 				E0F52D321C0FB96A007F6451 /* StatisticsViewController.swift */,
 				E0F52D2E1C0E484C007F6451 /* RegisterViewController.swift */,
 				E0F52D2C1C0D3ED7007F6451 /* LoginViewController.swift */,
@@ -377,6 +380,7 @@
 				59E3A2AF1C60596900C2C54B /* LeaguesViewController.swift in Sources */,
 				E0F52D331C0FB96A007F6451 /* StatisticsViewController.swift in Sources */,
 				59E3A2AB1C6052C700C2C54B /* NavigationController.swift in Sources */,
+				598524D51C77F9FA0023094F /* NewLeagueViewController.swift in Sources */,
 				59E3A2AD1C60532400C2C54B /* Colors.swift in Sources */,
 				E0F52D3A1C12B5F3007F6451 /* StatisticsTableViewCell.swift in Sources */,
 				E0F52D2F1C0E484C007F6451 /* RegisterViewController.swift in Sources */,
